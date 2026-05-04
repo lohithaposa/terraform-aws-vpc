@@ -1,4 +1,4 @@
-resource "aws_vpc_peering_connection" "foo" {
+resource "aws_vpc_peering_connection" "default" {
   count = var.is_peering_required ? 1 : 0
   #eer_owner_id = "${var.peer_owner_id}" Request for another account id
   #Acceptor
@@ -20,7 +20,7 @@ resource "aws_vpc_peering_connection" "foo" {
 tags = merge (
     local.common_tags,
     {
-        Name = ${var.project)-${var.environment}-default
+        Name = "{var.project)-${var.environment}-default"
     }
    )
 }
