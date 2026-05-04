@@ -145,7 +145,7 @@ resource "aws_nat_gateway" "main" {
         },
         var.nat-gateway_tags
  )
- depends_on = [aws_internet_gateway.example]
+ depends_on = [aws_internet_gateway.main]
 }
 
 
