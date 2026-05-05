@@ -181,3 +181,13 @@ resource "aws_route_table_association" "database" {
   subnet_id      = aws_subnet.database[count.index].id
   route_table_id = aws_route_table.database.id
 }
+
+resource "aws_route" "public_peering" {
+  
+  route_table_id = aws_route_table.public.id
+  destination_cidr_block = "data.aws_vpc.default.cidr_block"
+  nat_gateway_id     = aws_nat_gateway.main.id
+  vpc_peering_connection_id = aws_vpc_peering_connection.default.id
+}
+
+
